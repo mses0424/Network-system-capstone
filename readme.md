@@ -1,36 +1,36 @@
 # Network System Capstone Labs — Outline Summary
 
-本文件以大綱方式統整 Lab1～Lab6「做了什麼事情」，快速了解每次實驗的重點。
+This document provides an outline summary of Lab1–Lab6, focusing on what was implemented in each lab.
 
 ## Lab1 — Analog Beamforming (Matlab)
-- 實作波束掃描，找出使用者的最佳波束角度
-- 計算 Tx 增益並套用 Friis 模型得到 Rx 功率與 SNR
-- 模擬兩束同時傳輸，計算干擾功率與 SINR
+- Implement beam scanning to find optimal beam angles for users
+- Calculate Tx gain and apply Friis model to obtain Rx power and SNR
+- Simulate concurrent beams to compute interference power and SINR
 
 ## Lab2 — Beamforming with NS‑3 (LEO)
-- 在 NS‑3 中設定衛星與地面站拓樸
-- 匯入 Lab1 的 Tx 增益與 Pathloss，計算 Rx power 與 SNR
-- 根據 SNR 設定資料率並模擬傳輸，量測端到端延遲
+- Configure satellite and ground station topology in NS‑3
+- Import Tx gain and pathloss results from Lab1 to compute Rx power and SNR
+- Set data rate based on SNR, simulate transmissions, and measure end-to-end delay
 
 ## Lab3 — Network Optimization with OR‑Tools
-- 產生地面站與衛星連結的資料率圖 (network.graph)
-- 以 ILP 建立最佳化模型，決定關聯方式以最小化完成時間
-- 實作貪婪演算法作為基線，比較 OPT 與 Greedy 結果
+- Generate link data rate graph (network.graph) for ground station–satellite connections
+- Build ILP optimization model to minimize job completion time
+- Implement Greedy baseline algorithm and compare results with OR‑Tools solution
 
 ## Lab4 — Satellite-Ground Station Simulation (NS‑3)
-- 根據 Lab3 的關聯結果，在 NS‑3 中模擬實際傳輸
-- 實作封包傳送與接收紀錄，追蹤每個地面站的起迄時間
-- 輸出各衛星的收集時間與總收集完成時間
+- Simulate transmissions in NS‑3 using association results from Lab3
+- Implement packet sending/receiving tracking to record start and finish times per ground station
+- Output satellite collection times and overall collection completion time
 
 ## Lab5 — Load Balancing Routing
-- 在圖上為多組來源–目的對進行路由，最大化總吞吐
-- 使用 ILP 模型完成最佳化解
-- 設計並實作 MyAlgo（啟發式演算法），比較效能與基線
+- Perform routing for multiple source–destination pairs to maximize total throughput
+- Complete ILP model for optimal solution
+- Design and implement MyAlgo (heuristic algorithm), compare performance against baseline
 
 ## Lab6 — Load Balance Transmission with NS‑3
-- 修改 Nix-Vector-Routing，使其能讀取使用者自訂路徑
-- 模擬封包傳輸並在 MAC 層追蹤逐跳時間戳，驗證路徑正確
-- 比較兩組不同路徑配置的總吞吐量，分析壅塞效應
+- Modify Nix-Vector-Routing to support user-defined routing paths
+- Simulate packet transmissions and trace hop-by-hop timestamps at MAC layer to verify path correctness
+- Compare throughput of two different path sets and analyze congestion effects
 
 ---
-> 各 Lab 聚焦於不同面向：Lab1–2 在於天線與鏈路層計算，Lab3–5 在於最佳化模型與演算法設計，Lab6 回到模擬環境驗證效能。
+> Each lab focuses on different aspects: Lab1–2 emphasize antenna and link-level calculations, Lab3–5 focus on optimization modeling and algorithm design, and Lab6 validates performance in simulation.
